@@ -1,0 +1,40 @@
+  <body>
+    <div class="container mt-5 pt-5">
+      <h2>設定</h2>
+      <div class="user-container">
+        <div class="account-info">
+          <div class="account-title">
+            <h2>アカウント</h2>
+            <%= render "shared/error", obj: @user %>
+          </div>
+          <div class="account-info-group">
+            <label class="account-label">アイコン画像</label><p class="account-value"><%= image_tag current_user.profile_image_id.blank? ? 'no-image.png' : current_user.profile_image_id.url %></p>
+          </div>
+          <div class="account-info-group">
+            <label class="account-label">名前</label>
+            <p class="account-value"><%= current_user.name %></p>
+          </div>
+          <div class="account-info-group">
+            <label class="account-label">>自己紹介</label>
+            <p class="account-value"><%= current_user.profile %></p>
+          </div>
+          <div class="account-info-group">
+            <label class="account-label">メールアドレス</label>
+            <p class="account-value"><%= current_user.email %></p>
+          </div>
+          <div class="account-info-group">
+            <label class="account-label">パスワード</label>
+            <p class="account-value">*********</p>
+          </div>
+          <div class="account-actions">
+            <%= link_to "アカウント設定", edit_user_path(@user), class: "button is-primary" %>
+            <%= link_to "プロフィール編集", edit_registration_path(@user), class: "button is-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+
+      
+

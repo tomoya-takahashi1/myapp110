@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="card-title mb-4">トレーニング詳細</h3>
+          <table class="table table-bordered">
+            <tr>
+              <th>名前</th>
+              <td><%= @post.name %></td>
+            </tr>
+
+            <tr>
+              <th>年齢</th>
+              <td><%= @post.set %></td>
+            </tr>
+
+            <tr>
+              <th>一言紹介</th>
+              <td><%= @post.introduction %></td>
+            </tr>
+          </table>
+
+          <div class="text-center mt-4">
+            <% if @post.user == current_user %>
+              <%= link_to '編集', edit_post_path(@post), class: "btn btn-success" %>
+              <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-danger" %>
+            <% end %>
+            <%= link_to "ユーザー情報一覧に戻る", posts_path, class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

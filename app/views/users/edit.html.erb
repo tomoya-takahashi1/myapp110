@@ -1,0 +1,34 @@
+<div class="container-fluid py-5 mt-5" >
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="card-title text-center mb-4">プロフィール編集</h4>
+            <% if flash[:notice] %>
+              <p class="notice text-center"><%= flash[:notice] %></p>
+            <% end %>
+            <%= form_for @user, class: "styled-form" do |f| %>  
+              <div class="mb-3">
+                <%= f.label :profile_image_id, "アイコン画像", class: "form-label" %>
+                <%= f.file_field :profile_image_id, class: "form-control" %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :name, "名前", class: "form-label" %>
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :profile, "自己紹介", class: "form-label" %>
+                <%= f.text_area :profile, class: "form-control" %>
+              </div>
+              <div class="d-flex justify-content-end">
+                <%= link_to "キャンセル", user_path(current_user), class: "btn btn-primary ml-1 colorful-btn" %>
+                <%= f.submit "更新", class: "btn btn-primary ml-1 colorful-btn" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

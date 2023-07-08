@@ -1,0 +1,26 @@
+<div class="container mt-5 pt-5"> 
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="table-responsive" style="overflow-x: auto;">
+        <table class="table table-auto">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>名前</th>
+              <th>プロフィール</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.profile %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
