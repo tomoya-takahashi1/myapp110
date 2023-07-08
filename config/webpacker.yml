@@ -90,3 +90,9 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+
+
+babel:
+    plugins:
+      - "@babel/plugin-proposal-private-methods"
+      
