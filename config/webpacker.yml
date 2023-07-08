@@ -8,6 +8,10 @@ default: &default
   cache_path: tmp/cache/webpacker
   webpack_compile_output: true
 
+babel:
+    plugins:
+      - "@babel/plugin-proposal-private-methods"
+      
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
   additional_paths: []
@@ -95,4 +99,3 @@ production:
 babel:
     plugins:
       - "@babel/plugin-proposal-private-methods"
-      
