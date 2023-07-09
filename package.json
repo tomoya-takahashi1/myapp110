@@ -1,7 +1,16 @@
 {
   "name": "myapp110",
-  "version": " 1.2.3",
+  "version": "1.2.3",
   "main": "index.js",
   "repository": "https://github.com/tomoya-takahashi1/myapp110.git",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "webpack": "5"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  }
 }
