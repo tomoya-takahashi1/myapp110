@@ -189,6 +189,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    pg (1.5.3)
     popper_js (1.16.1)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -401,6 +402,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   mini_magick
+  pg
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -418,7 +420,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
-  sqlite3 (~> 1.4)
+  sqlite3
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
