@@ -402,6 +402,9 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   mini_magick
+  net-imap
+  net-pop
+  net-smtp
   pg
   pry-rails
   puma (~> 5.0)
