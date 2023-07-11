@@ -4,8 +4,10 @@
   "main": "index.js",
   "repository": "https://github.com/tomoya-takahashi1/myapp110.git",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
   "scripts": {
     "build": "webpack --config webpack.config.js"
   }
