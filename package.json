@@ -1,5 +1,12 @@
 {
   "name": "myapp110",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  }
 }
