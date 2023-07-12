@@ -67,9 +67,10 @@ development:
     quiet: false
     pretty: false
     headers:
-      "Access-Control-Allow-Origin": "*"
+      'Access-Control-Allow-Origin': '*'
     watch_options:
-      ignored: "**/node_modules/**"
+      ignored: '**/node_modules/**'
+
 
 test:
   <<: *default
@@ -80,16 +81,12 @@ test:
 
 production:
   <<: *default
-  compile: true
+
   # Production depends on precompilation of packs prior to booting for performance.
-  compile: true
+  compile: false
 
   # Extract and emit a css file
   extract_css: true
 
   # Cache manifest.json for performance
   cache_manifest: true
-
-babel:
-  plugins:
-    - "@babel/plugin-proposal-private-methods"
