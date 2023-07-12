@@ -2,7 +2,7 @@
   "name": "myapp110",
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "@rails/webpacker": "5.4.4",
