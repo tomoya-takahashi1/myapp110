@@ -93,9 +93,7 @@ end
 
 gem 'rails_12factor', group: :production
 
-#group :production do
-  #gem 'pg'
-#end
+
 
 gem 'net-smtp'
 gem 'net-pop'
