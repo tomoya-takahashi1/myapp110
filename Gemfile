@@ -99,3 +99,5 @@ gem 'net-pop'
 gem 'net-imap'
 
 gem 'pg'
+
+gem 'rakuten_web_service'

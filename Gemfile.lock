@@ -165,7 +165,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
-    msgpack (1.7.1)
+    msgpack (1.7.2)
     mustermann (1.1.2)
       ruby2_keywords (~> 0.0.1)
     net-imap (0.3.6)
@@ -180,8 +180,6 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.9)
     nokogiri (1.15.3-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.23.0)
@@ -246,6 +244,8 @@ GEM
       thor (~> 1.0)
     rainbow (3.1.1)
     rake (13.0.6)
+    rakuten_web_service (1.13.2)
+      json (~> 2.3)
     ransack (4.0.0)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
@@ -345,7 +345,6 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.3-arm64-darwin)
-    sqlite3 (1.6.3-x86_64-linux)
     ssrf_filter (1.1.1)
     thor (1.2.2)
     tilt (2.2.0)
@@ -385,7 +384,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
@@ -412,6 +410,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   rails-i18n
   rails_12factor
+  rakuten_web_service
   ransack
   refile!
   refile-mini_magick

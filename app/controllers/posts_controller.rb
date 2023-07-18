@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @products = RakutenWebService::Ichiba::Item.search(keyword: '検索キーワード')
     if params[:search]
       @posts = Post.where("name LIKE ?", "%#{params[:search]}%")
     else
@@ -48,5 +49,4 @@ class PostsController < ApplicationController
     flash[:notice] = "ユーザーを削除しました"
     redirect_to :posts
   end
-  
 end
