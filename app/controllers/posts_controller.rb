@@ -1,14 +1,13 @@
 class PostsController < ApplicationController
   def index
-    @products = RakutenWebService::Ichiba::Item.search(keyword: '検索キーワード')
-    if params[:search]
-      @posts = Post.where("name LIKE ?", "%#{params[:search]}%")
-    else
-      @posts = Post.all
-    end
+      if params[:search]
+        @posts = Post.where("name LIKE ?", "%#{params[:search]}%")
+      else
+        @posts = Post.all
+      end
+      @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC') # 人気投稿
   end
-  
-  
+
   def new
     @post = Post.new
   end
@@ -26,7 +25,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-   
   end
 
   def edit
@@ -46,7 +44,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = "ユーザーを削除しました"
+    flash[:notice] = "投稿を削除しました"
     redirect_to :posts
   end
 end

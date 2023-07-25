@@ -1,0 +1,14 @@
+<div class="product-list">
+  <% @api_products.first(14).each do |api_product| %>
+    <div class="product-card">
+      <%= image_tag(api_product['smallImageUrls'][0], class: "product-image") %>
+      <div class="product-title">
+        <%= truncate(api_product['itemName'], length: 30) %>
+      </div>
+      <div class="product-price">
+        <%= number_with_delimiter(api_product['itemPrice']) %>円
+      </div>
+      <%= link_to "詳細を見る", api_product['itemUrl'], class: "product-link" %>
+    </div>
+  <% end %>
+</div>

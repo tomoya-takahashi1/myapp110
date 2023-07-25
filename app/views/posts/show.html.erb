@@ -9,18 +9,15 @@
               <th>名前</th>
               <td><%= @post.name %></td>
             </tr>
-
             <tr>
               <th>年齢</th>
               <td><%= @post.set %></td>
             </tr>
-
             <tr>
               <th>一言紹介</th>
               <td><%= @post.introduction %></td>
             </tr>
           </table>
-
           <div class="text-center mt-4">
             <% if @post.user == current_user %>
               <%= link_to '編集', edit_post_path(@post), class: "btn btn-success" %>
@@ -33,4 +30,3 @@
     </div>
   </div>
 </div>
-

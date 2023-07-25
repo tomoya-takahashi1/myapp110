@@ -1,7 +1,6 @@
 require_relative "boot"
-
 require "rails/all"
-
+require 'rakuten_web_service'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -20,5 +19,9 @@ module Myapp110
     # config.eager_load_paths << Rails.root.join("extras")
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
+
+    RakutenWebService.configure do |c|
+      c.application_id = '1036911456709707355'
+    end
   end
 end

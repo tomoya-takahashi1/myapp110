@@ -3,7 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   include CarrierWave::MiniMagick
-  process resize_to_fit: [100, 100]
+  #process resize_to_fit: [100, 100]
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -53,11 +53,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   process resize_to_fit: [400, 200]
     version :thumb do 
       process resize_to_fit: [200, 200] 
+      #process quality: 80
+      process :adjust_image_quality
     end 
 
 
    version :thumb50 do 
      process resize_to_fit: [100, 100] 
+     #process quality: 80
+     process :adjust_image_quality
     end 
 
   #アップロードした画像の表示
@@ -66,15 +70,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   #デフォルト画像の設定
-   def default_url
-   "default-image.png"
-   end
+    def default_url
+     "default-image.png"
+    end
 
-  end
- 
-
- 
-
-
-
-
+    def adjust_image_quality
+      manipulate! do |img|
+        img.quality(90)
+        img
+      end
+    end
+  process :adjust_image_quality
+end

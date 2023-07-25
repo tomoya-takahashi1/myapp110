@@ -8,9 +8,32 @@ require:
 AllCops:
   NewCops: enable
   Exclude:
-    - 'bin/*'
-    - 'db/**/*'
-    - 'tmp/**/*'
-    - 'vendor/**/*'
+    - "bin/*"
+    - "db/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
   TargetRubyVersion: 3.1
-  
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Rails/ActionControllerFlashBeforeRender:
+  Exclude:
+    - "app/controllers/sessions_controller.rb"
+
+Style/GuardClause:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Rails/ActionOrder:
+  Enabled: false
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+Rails/FilePath:
+  Enabled: false
+Style/RedundantConstantBase:
+  Enabled: false
+RSpec/IndexedLet:
+  Enabled: false
+Lint/RedundantDirGlobSort:
+  Enabled: false

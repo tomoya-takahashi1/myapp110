@@ -6,19 +6,18 @@ class User < ApplicationRecord
          attachment :profile_image
          mount_uploader :profile_image_id, ImageUploader
          validates :name, presence: true
-
          def self.guest
           find_or_create_by(email: 'guest@example.com') do |user|
             user.password = SecureRandom.hex(8)
             user.name = 'ゲストさん'
-        end
+         end
   end
 
   def guest?
     false
   end
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   def already_favorited?(post)

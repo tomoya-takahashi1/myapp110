@@ -67,3 +67,24 @@
     color: #6c757d;
   }
 }
+
+#new-posts-link,
+#popular-posts-link {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#popular-posts {
+  display: none;
+}
+
+#new-posts-link {
+  margin-right: 120px;
+}
+
+#popular-posts-link {
+  margin-left: 120px;
+}

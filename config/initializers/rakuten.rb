@@ -1,3 +1,3 @@
 RakutenWebService.configuration do |c|
-  c.application_id = '1036911456709707355'
+  c.application_id = '1033470520833985303'
 end
