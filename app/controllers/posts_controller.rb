@@ -5,7 +5,7 @@ class PostsController < ApplicationController
       else
         @posts = Post.all
       end
-      @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC') # 人気投稿
+      @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC') 
   end
 
   def new

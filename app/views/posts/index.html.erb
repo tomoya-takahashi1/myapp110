@@ -124,7 +124,8 @@
                 </td>
                 <td class="text-center">
                   <div class="favorite-wrapper">
-                    <% if current_user.already_favorited?(post) %>
+                    <!--<% if current_user.already_favorited?(post) %>-->
+                    <% if current_user && current_user.already_favorited?(post) %>
                     <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button" do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
