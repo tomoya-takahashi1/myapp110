@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :comments
+  root to: 'posts#index'
   get 'posts/index'
   get 'home/top'
-  root to: 'home#top'
   devise_for :users
   devise_scope :user do    #ログアウトの設定
     get '/users/sign_out' => 'devise/sessions#destroy'

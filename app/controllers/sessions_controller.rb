@@ -3,6 +3,6 @@ class SessionsController < ApplicationController
     user = User.guest
     sign_in(user)
     redirect_to root_path
-    flash.now[:notice] = "ゲストユーザーとしてログインしました"
+    flash[:notice] = "ゲストユーザーとしてログインしました"
   end
 end
