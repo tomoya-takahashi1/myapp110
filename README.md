@@ -1,24 +1,27 @@
-# README
+トレーニング投稿アプリプロジェクト概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+概要
+このプロジェクトは、トレーニングに関する情報を投稿し、ユーザー間でトレーニングの成果を共有するトレーニング投稿アプリケーションです。
 
-Things you may want to cover:
+主な機能
+ユーザー登録・ログイン: ユーザーはアカウントを作成し、ログインしてアプリを利用できます。
+トレーニング投稿: ユーザーはトレーニングに関する投稿を作成できます。投稿にはトレーニングの内容や成果などを含めることができます。
+トレーニング日記: ユーザーは日々のトレーニングを記録することができるトレーニング日記を作成できます。
+いいね機能: ユーザーは他の投稿に対していいねをすることができます。
+検索機能: ユーザーはキーワードで投稿を検索できます。
+人気のトレーニング投稿: いいねが多い人気のトレーニング投稿を閲覧できます。
 
-* Ruby version
+技術スタック
+Ruby on Rails フレームワークを使用しています。
+フロントエンドには HTML, CSS, JavaScript を使用しています。
+データベースには PostgreSQL を使用しています。
+ユーザー認証には Devise gem を使用しています。
+画像アップロードには CarrierWave gem を使用しています。
 
-* System dependencies
+デプロイ方法（Heroku）
+Heroku を使用してアプリケーションをデプロイします。詳細な手順は前述の通りです。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+インストールとセットアップ
+リポジトリをクローンした後、以下のコマンドでアプリケーションをセットアップしてください。
+$ bundle install
+$ rails db:migrate

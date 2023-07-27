@@ -88,6 +88,7 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false 
   gem 'rubocop-rspec', require: false 
+  gem 'rails-erd'
 end
 
 gem 'rails_12factor', group: :production
@@ -101,3 +102,4 @@ gem 'net-imap'
 gem 'pg'
 
 gem 'rakuten_web_service'
+

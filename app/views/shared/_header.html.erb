@@ -30,10 +30,12 @@
             <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item", form_class: "form-inline" %></li>
           </ul>
         </div>
-       <% else %>
-         <%= link_to "ログイン",new_user_session_path, class: "btn btn-primary mr-3"%>
-         <%= link_to "新規登録",new_user_registration_path,class: "btn btn-secondary"%>
-         <%= link_to "ゲストログイン", guest_login_path %>
+        <% else %>
+          <div class="btn-group" role="group">
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary mr-3" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary mr-3" %>
+            <%= link_to "ゲストログイン", guest_login_path, class: "btn btn-primary" %>
+          </div>
         <% end%>
       </div>
     </div>      
