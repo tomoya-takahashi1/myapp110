@@ -89,7 +89,8 @@
               <th scope="col">種目</th>
               <th scope="col">投稿者</th>
               <th scope="col">回数</th>
-              <th scope="col">種目内容</th>
+              <th scope="col">器具、プロテイン</th>
+              <th scope="col">トレーニング部位</th>
               <th scope="col">更新日</th>
               <th scope="col">作成日</th>
               <th scope="col">参照</th>
@@ -105,6 +106,7 @@
                 <td class="text-center"><%= post.user.name %></td>
                 <td class="text-center"><%= post.set %></td>
                 <td class="text-center"><%= post.introduction %></td>
+                <td class="text-center"><%= post.muscle %></td>
                 <td class="text-center"><%= post.updated_at.to_s(:datetime_jp) %></td>
                 <td class="text-center"><%= post.created_at.to_s(:datetime_jp) %></td>
                 <td class="text-center">
@@ -124,7 +126,7 @@
                 </td>
                 <td class="text-center">
                   <div class="favorite-wrapper">
-                    <% if current_user && current_user.already_favorited?(post) %>
+                  <% if current_user && current_user.already_favorited?(post) %>
                     <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button" do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
@@ -206,7 +208,7 @@
 <div class="container pt-5" style="max-width: 600px;">
   <%= form_with url: api_products_search_path, method: :get, local: true do |f| %>
     <div class="form-group">
-      <%= f.text_field :keyword, value: params[:keyword], class: "form-control",placeholder: "プロテインの検索" %>
+      <%= f.text_field :keyword, value: params[:keyword], class: "form-control",placeholder: "おすすめにあった器具、プロテインの検索" %>
       <%= f.submit '製品名を検索', class: "form-control btn btn-success" %>
     </div>
   <% end %>

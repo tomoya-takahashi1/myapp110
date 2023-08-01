@@ -9,3 +9,8 @@ ja:
       post:
         name: 種目
         set: 回数
+ja:
+  devise:
+    registrations:
+      user:
+        signed_up: "ようこそ！登録が完了しました。"

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 pt-5">
   <div class="row justify-content-center">
     <div class="col-6">
       <div class="card shadow">
@@ -6,16 +6,20 @@
           <h3 class="card-title mb-4">トレーニング詳細</h3>
           <table class="table table-bordered">
             <tr>
-              <th>名前</th>
+              <th>種目</th>
               <td><%= @post.name %></td>
             </tr>
             <tr>
-              <th>年齢</th>
+              <th>回数</th>
               <td><%= @post.set %></td>
             </tr>
             <tr>
-              <th>一言紹介</th>
+              <th>おすすめの器具、トレーニング、プロテイン</th>
               <td><%= @post.introduction %></td>
+            </tr>
+            <tr>
+              <th>トレーニング部位</th>
+               <td><%= @post.muscle %></td>
             </tr>
           </table>
           <div class="text-center mt-4">

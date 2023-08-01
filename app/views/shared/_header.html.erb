@@ -23,9 +23,7 @@
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><%= link_to "投稿一覧", posts_index_path, class: "dropdown-item" %></li>
             <li><%= link_to "記録作成", new_post_path, class: "dropdown-item" %></li>
-            <li><%= link_to "ユーザー一覧", users_path, class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
             <li><%= link_to "アカウント設定", user_path(current_user), class: "dropdown-item" %></li>
             <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item", form_class: "form-inline" %></li>
           </ul>
