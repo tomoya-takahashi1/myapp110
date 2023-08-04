@@ -24,6 +24,10 @@
                   <th><%= f.label :muscle, "トレーニング部位" %></th>
                   <td><%= f.text_area :muscle, class: "form-control" %></td>
                 </tr>
+                <tr>
+                  <th><%= f.label :effect, "トレーニングの効果" %></th>
+                  <td><%= f.number_field :effect, class: "form-control", placeholder: "トレーニングの効果を入力してください" %></td>
+                </tr>
               </table>
               <div class="text-center">
                 <%= f.submit "編集を完了する", class: "btn btn-primary" %>

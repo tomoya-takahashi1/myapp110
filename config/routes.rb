@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/show'
   resources :comments
   root to: 'posts#index'
   get 'posts/index'
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   get '/api_products_search', to: 'api_products#search'
+  resource :dashboard, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

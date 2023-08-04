@@ -35,6 +35,6 @@ Rspec
 rubocop
 RakutenWebService
 
-[erd.pdf](https://github.com/tomoya-takahashi1/myapp110/files/12212797/erd.pdf)
+<img width="1156" alt="スクリーンショット 2023-08-04 16 41 12" src="https://github.com/tomoya-takahashi1/myapp110/assets/123609557/abc01cc2-070c-4126-b522-dfd80826434c">
 
 ![スクリーンショット 2023-07-31 17 12 30](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/e0ba108a-dbc5-4d71-ad63-9a814e2493a1)

@@ -1,0 +1,97 @@
+<div class="container mt-5 pt-5">
+  <h2 class="text-center">ようこそ、<%= @user.name %>さんのダッシュボードへ</h2>
+  <div class="row">
+    <div class="col-md-6 mt-4">
+      <h4>最新の投稿</h4>
+      <ul>
+        <% @posts.each do |post| %>
+          <li><%= post.name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-6 mt-4">
+      <h4>トレーニングの効果</h4>
+      <canvas id="effect-chart" width="100" height="50"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- スタイルシートの読み込み -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+<!-- Chart.jsの読み込み -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- DatePickerのスクリプト -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<!-- 日付選択用のテキストフィールド -->
+<input type="text" id="date-picker" class="form-control">
+<style>
+  /* Custom styles for the date picker input */
+  .form-control#date-picker {
+    max-width: 200px; /* 設定したい横幅に合わせて調整してください */
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var ctx = document.getElementById('effect-chart').getContext('2d');
+    
+    var effectData = <%= raw @chart_data.to_json %>;
+    var labels = Object.keys(effectData);
+
+    var chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [], // 空の配列で初期化
+        datasets: []
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: '回数'
+            }
+          }
+        }
+      }
+    });
+
+    // Function to update the chart with selected date
+    function updateChart(selectedDate) {
+      var filteredData = effectData[selectedDate];
+      var labels = filteredData.map(function(item) { return item.name; });
+      var sets = filteredData.map(function(item) { return item.set; });
+
+      chart.data.labels = labels;
+      chart.data.datasets = [{
+        label: 'トレーニングの回数',
+        data: sets,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }];
+      chart.update();
+    }
+
+    // Event listener for date picker
+    var datePicker = document.getElementById('date-picker');
+    if (datePicker) {
+      $(datePicker).datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        todayHighlight: true
+      }).on('changeDate', function (event) {
+        var selectedDate = event.format();
+        updateChart(selectedDate);
+      });
+    }
+
+    var defaultDate = labels[0]; // 最初の日付をデフォルトで表示
+    updateChart(defaultDate);
+  });
+</script>
+

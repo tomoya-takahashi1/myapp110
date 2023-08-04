@@ -103,3 +103,4 @@ gem 'pg'
 
 gem 'rakuten_web_service'
 
+gem 'groupdate'

@@ -1,6 +1,16 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index,:create, :edit, :update, :destroy]
+  before_action :check_login_for_new, only: [:new, :create]
 
+  #def index
+    #if params[:search]
+      #search_query = "%#{params[:search]}%"
+      #@posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
+    #else
+      #@posts = Post.all
+    #end
+    #@popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC') 
+  #end
   def index
     if params[:search]
       search_query = "%#{params[:search]}%"
@@ -8,9 +18,10 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
-    @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC') 
+
+    @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC')
   end
-  
+
   def new
     @post = Post.new
   end
@@ -19,6 +30,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:notice] = "新規投稿しました。"
+      @chart_data ||= {}
+      #@chart_data[@post.name] = @post.set.to_f
+      @chart_data[@post.name] = @post.effect.to_f # 種目名とトレーニングの効果をグラフ用のデータに追加
       redirect_to posts_path
     else
       render "new"
@@ -30,8 +44,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
-    authorize_user!
+    @post = current_user.posts.find_by(id: params[:id])
+  if @post.nil?
+    flash[:notice] = "他のユーサーの投稿は編集できません"
+    redirect_to root_path
+  end
   end
 
   def update
@@ -46,27 +63,37 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    unless authorize_user!
-      flash[:notice] = "他のユーザーの投稿は削除できません"
-      redirect_to posts_path and return
-    end
-
+    @post = current_user.posts.find_by(id: params[:id])
+  if @post
     @post.destroy
     flash[:notice] = "投稿を削除しました"
-    redirect_to posts_path
+  else
+    flash[:notice] = "他のユーサーの投稿は消せません"
+  end
+  redirect_to root_path
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:name, :set, :introduction,:muscle)
+    params.require(:post).permit(:name, :set, :introduction,:muscle, :effect)
   end
 
   def authorize_user!
     @post.user == current_user
   end
 
-
+  def authenticate_user!
+    unless user_signed_in?
+      redirect_to new_user_session_path, notice: "ログインしているユーザーのみ投稿一覧を見ることができます。"
+    end
+  end
+  
+  def check_login_for_new
+    unless user_signed_in?
+      flash[:notice] = "ログインしているユーザーのみ記録作成が可能です。"
+      redirect_to new_user_session_path
+    end
+  end
   
 end
