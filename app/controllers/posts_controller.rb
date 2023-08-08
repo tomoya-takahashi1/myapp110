@@ -2,15 +2,6 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:index,:create, :edit, :update, :destroy]
   before_action :check_login_for_new, only: [:new, :create]
 
-  #def index
-    #if params[:search]
-      #search_query = "%#{params[:search]}%"
-      #@posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
-    #else
-      #@posts = Post.all
-    #end
-    #@popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC') 
-  #end
   def index
     if params[:search]
       search_query = "%#{params[:search]}%"

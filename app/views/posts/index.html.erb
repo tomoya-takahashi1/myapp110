@@ -99,8 +99,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @posts.each do |post| %>
-              <tr>
+            <% @posts.reverse_each do |post| %>
                 <td class="text-center"><%= post.name %></td>
                 <td class="text-center"><%= post.user.name %></td>
                 <td class="text-center"><%= post.set %></td>
@@ -114,13 +113,21 @@
                   <% end %>
                 </td>
                 <td class="text-center">
-                  <%= link_to [:edit, post], class: "btn btn-sm btn-info" do %>
-                    <i class="fas fa-edit"></i> 編集
+                  <% if current_user == post.user %>
+                    <%= link_to [:edit, post], class: "btn btn-sm btn-info" do %>
+                      <i class="fas fa-edit"></i> 編集
+                    <% end %>
+                  <% else %>
+                    &nbsp; 
                   <% end %>
                 </td>
-                <td class="text-center">
-                  <%= button_to post, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '本当に削除しますか？' } do %>
-                    <i class="fas fa-trash"></i> 削除
+                 <td class="text-center">
+                  <% if current_user == post.user %>
+                    <%= button_to post, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '本当に削除しますか？' } do %>
+                      <i class="fas fa-trash"></i> 削除
+                    <% end %>
+                  <% else %>
+                    &nbsp; 
                   <% end %>
                 </td>
                 <td class="text-center">
@@ -174,13 +181,21 @@
                   <% end %>
                 </td>
                 <td class="text-center">
-                  <%= link_to [:edit, post], class: "btn btn-sm btn-info" do %>
-                    <i class="fas fa-edit"></i> 編集
+                  <% if current_user == post.user %>
+                    <%= link_to [:edit, post], class: "btn btn-sm btn-info" do %>
+                      <i class="fas fa-edit"></i> 編集
+                    <% end %>
+                  <% else %>
+                    &nbsp; 
                   <% end %>
                 </td>
-                <td class="text-center">
-                  <%= button_to post, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '本当に削除しますか？' } do %>
-                    <i class="fas fa-trash"></i> 削除
+                 <td class="text-center">
+                  <% if current_user == post.user %>
+                    <%= button_to post, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '本当に削除しますか？' } do %>
+                      <i class="fas fa-trash"></i> 削除
+                    <% end %>
+                  <% else %>
+                    &nbsp; 
                   <% end %>
                 </td>
                 <td class="text-center">
@@ -215,8 +230,3 @@
     <%= render 'api_products/api_product' %>
   <% end %>
 </div>
-
-
-
-
-

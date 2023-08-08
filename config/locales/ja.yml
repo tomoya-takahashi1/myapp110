@@ -14,3 +14,16 @@ ja:
     registrations:
       user:
         signed_up: "ようこそ！登録が完了しました。"
+
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        name: 種目
+        set: 回数
+  errors:
+    messages:
+      blank: "を入力してください"
+      not_a_number: "は数値で入力してください"
