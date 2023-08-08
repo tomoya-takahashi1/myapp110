@@ -8,6 +8,7 @@
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><%= link_to "投稿一覧", posts_index_path, class: "nav-link px-2 link-dark" %></li>
         <li><%= link_to "記録作成", new_post_path, class: "nav-link px-2 link-dark" %></li>
+        <li><%= link_to "日々の成長確認", dashboard_show_path, class: "nav-link px-2 link-dark" %></li>
       </ul>
        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
         <%= form_tag(posts_path, method: "get") do %>
@@ -22,7 +23,6 @@
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><%= link_to "投稿一覧", posts_index_path, class: "dropdown-item" %></li>
             <li><%= link_to "記録作成", new_post_path, class: "dropdown-item" %></li>
-             <li><%= link_to "ダッシュボード", dashboard_show_path, class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "アカウント設定", user_path(current_user), class: "dropdown-item" %></li>
             <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item", form_class: "form-inline" %></li>
