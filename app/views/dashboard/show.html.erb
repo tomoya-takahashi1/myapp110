@@ -5,9 +5,9 @@
       <h4>最新の投稿</h4>
       <ul>
         <% @posts.each do |post| %>
-           <li>
-        <%= post.name %> <%= post.created_at.to_s(:datetime_jp) %>
-      </li>
+          <li>
+            <%= post.name %> <%= post.created_at.to_s(:datetime_jp) %>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -97,15 +97,3 @@
   });
 </script>
 
-
-<div class="container pt-5" style="max-width: 600px;">
-  <%= form_with url: api_products_search_path, method: :get, local: true do |f| %>
-    <div class="form-group">
-      <%= f.text_field :keyword, value: params[:keyword], class: "form-control",placeholder: "おすすめにあった器具、プロテインの検索" %>
-      <%= f.submit '検索', class: "form-control btn btn-success" %>
-    </div>
-  <% end %>
-  <% if @api_products.present? %>
-    <%= render 'api_products/api_product' %>
-  <% end %>
-</div>
