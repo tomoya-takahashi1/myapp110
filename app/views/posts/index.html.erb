@@ -5,36 +5,24 @@
     </div>
   <% end %>
 </div>
-<article class="my-3" id="carousel">
-  <div>
-    <div class="bd-example">
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <defs>
-                <pattern id="background-image" x="0" y="0" width="100%" height="100%" patternContentUnits="objectBoundingBox">
-                  <image href="https://img.freepik.com/free-photo/close-up-of-sportive-man-jogging-in-field-at-sunrise_176420-5185.jpg?w=1380&t=st=1687775519~exp=1687776119~hmac=492f129112bc7168c0abfc1ec8ecc3fe6d99e50f7958ac7254b56d9cc094e982" width="1" height="1" preserveAspectRatio="none"></image>
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#background-image)" x="0%"/>
-              <text x="50%" y="40%" fill="orange" dy=".3em" font-size="75" text-anchor="middle">トレーニング投稿所</text>
-            </svg>
-            <div class="carousel-caption d-none d-md-block text-center">
-              <p>トレーニング投稿所では、君のイカしたトレーニングを投稿できるぞ！みんなの投稿を見て、イカしたトレーニングを見つけたらお気に入り登録しておこう！</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+<div class="bd-example text-center mt-5" style="position: relative;">
+  <h2 class="overlay-title">Habit</h2>
+  <p>--習慣で人生が変わる--</p>
+  <div class="overlay-text">
+    <p class="overlay-description">
+      トレーニングした記録を共有できるサイトです<br>理想のボディに近づけるように今日も頑張りましょう!<br>みんなの投稿を見て、イカしたトレーニングを見つけたらお気に入り登録しておこう！
+    </p>
   </div>
-</article>
+  <img src="https://www.d-sp.co.jp/maebashi/wp/wp-content/uploads/2020/06/shutterstock_311106002.jpg" class="img-fluid" alt="Responsive image">
+</div>
+
 <section id="components">
-    <article class="my-3" id="accordion">
-      <div>
-        <div class="bd-example">
+  <article class="my-3" id="accordion">
+    <div>
+      <div class="bd-example">
         <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
+          <div class="accordion-item d-none d-sm-block">
             <h4 class="accordion-header" id="headingOne">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 トレーニングは必要なのか
@@ -42,22 +30,23 @@
             </h4>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <strong>トレーニングをするメリットはたくさんある.</strong><br> 1つ目健康的な生活をおくれる</br><br>2つ目老若男女関係なく始められる</br><br>3つ目精神的に安定する</br>
+                <strong>トレーニングをするメリットはたくさんある.</strong><br> 1つ目健康的な生活をおくれる<br>2つ目老若男女関係なく始められる<br>3つ目精神的に安定する</br>
               </div>
             </div>
           </div>
-           <div class="accordion-item">
-            <h4 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTWO" aria-expanded="false" aria-controls="collapseTWO">
+          <div class="accordion-item d-none d-sm-block">
+            <h4 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 習慣にしないと人間は行動できない
               </button>
             </h4>
-            <div id="collapseTWO" class="accordion-collapse collapse" aria-labelledby="headingTWO" data-bs-parent="#accordionExample">
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <strong>トレーニングを習慣にすることは難しい辛い、大変、苦しい、すぐに結果に現れないだからこそ記録することに意味がある</strong> 
+              </div>
             </div>
           </div>         
-          <div class="accordion-item">
+          <div class="accordion-item d-none d-sm-block">
             <h4 class="accordion-header" id="headingThree">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 人間は承認欲求の塊
@@ -70,36 +59,39 @@
             </div>
           </div>
         </div>
-        </div>
       </div>
-    </article>
+    </div>
+  </article>
 </section>
-<div class="text-center mt-3">
-  <%= link_to "-新着投稿-", "#", id: "new-posts-link" %>
-  <%= link_to "-人気投稿-", "#", id: "popular-posts-link" %>
+
+<div class="text-center mt-3 d-flex flex-wrap justify-content-center mt-5">
+  <%= link_to "-新着投稿-", "#", id: "new-posts-link", class: "me-3 mb-2" %>
+  <%= link_to "-人気投稿-", "#", id: "popular-posts-link", class: "mb-2" %>
 </div>
-<div class="container mt-5">
+
+<div class="container  pt-5">
   <div class="row">
-    <div class="col-12 mx-auto" id="new-posts">
-      <p class="text-center mt-5">新着投稿</p>
-        <table class="table custom-table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">種目</th>
-              <th scope="col">投稿者</th>
-              <th scope="col">回数</th>
-              <th scope="col">器具、プロテイン</th>
-              <th scope="col">トレーニング部位</th>
-              <th scope="col">更新日</th>
-              <th scope="col">作成日</th>
-              <th scope="col">参照</th>
-              <th scope="col">編集</th>
-              <th scope="col">削除</th>
-              <th scope="col">いいね</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @posts.reverse_each do |post| %>
+    <div class="col-12 mx-auto px-0" id="new-posts">
+      <p class="text-center ">新着投稿</p>
+        <div class="table-responsive">
+          <table class="table custom-table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">種目</th>
+                <th scope="col">投稿者</th>
+                <th scope="col">回数</th>
+                <th scope="col">器具、<br>プロテイン</th>
+                <th scope="col">トレーニング部位</th>
+                <th scope="col">更新日</th>
+                <th scope="col">作成日</th>
+                <th scope="col">参照</th>
+                <th scope="col">編集</th>
+                <th scope="col">削除</th>
+                <th scope="col">いいね</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @posts.reverse_each do |post| %>
                 <td class="text-center"><%= post.name %></td>
                 <td class="text-center"><%= post.user.name %></td>
                 <td class="text-center"><%= post.set %></td>
@@ -121,7 +113,7 @@
                     &nbsp; 
                   <% end %>
                 </td>
-                 <td class="text-center">
+                <td class="text-center">
                   <% if current_user == post.user %>
                     <%= button_to post, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '本当に削除しますか？' } do %>
                       <i class="fas fa-trash"></i> 削除
@@ -147,11 +139,13 @@
               </tr>
             <% end %>
           </tbody>
-        </table>
+          </table>
+        </div>
     </div>
     <div class="col-12 mx-auto" id="popular-posts" >
-      <p class="text-center mt-5">人気投稿</p>
-       <table class="table custom-table">
+      <p class="text-center mt-5 px-0">人気投稿</p>
+        <div class="table-responsive">
+         <table class="table custom-table">
           <thead class="thead-dark">
             <tr>
               <th scope="col">種目</th>
@@ -216,6 +210,7 @@
             <% end %>
           </tbody>
         </table>
+        </div>
     </div>
   </div>
 </div>

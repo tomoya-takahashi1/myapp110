@@ -1,5 +1,5 @@
 <div class="container mt-5 pt-5">
-  <h2 class="text-center">ようこそ、<%= @user.name %>さんの成長確認部屋へ</h2>
+  <h2 class="text-center mt-5">ようこそ、<%= @user.name %>さんの成長確認部屋へ</h2>
   <div class="row">
     <div class="col-md-6 mt-4">
       <h4>最新の投稿</h4>
@@ -30,19 +30,12 @@
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
-
-
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var ctx = document.getElementById('effect-chart').getContext('2d');
-    
     var effectData = <%= raw @chart_data.to_json %>;
     var labels = Object.keys(effectData);
-
     var chart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -61,8 +54,6 @@
         }
       }
     });
-
-    
     function updateChart(selectedDate) {
       var filteredData = effectData[selectedDate];
       var labels = filteredData.map(function(item) { return item.name; });
@@ -78,8 +69,6 @@
       }];
       chart.update();
     }
-
-   
     var datePicker = document.getElementById('date-picker');
     if (datePicker) {
       $(datePicker).datepicker({
@@ -96,4 +85,3 @@
     updateChart(defaultDate);
   });
 </script>
-

@@ -1,44 +1,61 @@
-<header class="p-3 mb-3 border-bottom fixed-top"">
+
+
+
+<header class="p-3 mb-3 border-bottom fixed-top">
   <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+          <use xlink:href="#bootstrap"/>
+        </svg>
       </a>
-       <% if user_signed_in? %>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to "投稿一覧", posts_index_path, class: "nav-link px-2 link-dark" %></li>
-        <li><%= link_to "記録作成", new_post_path, class: "nav-link px-2 link-dark" %></li>
-        <li><%= link_to "日々の成長確認", dashboard_show_path, class: "nav-link px-2 link-dark" %></li>
-      </ul>
-       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <%= form_tag(posts_path, method: "get") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "キーワードを入力" %>
-          <%= submit_tag "検索" %>
-        <% end %>
-      </form>
-        <div class="dropdown text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= image_tag current_user.profile_image_id.blank? ? 'no-image.png' : current_user.profile_image_id.url, class: "img-account img-field img-circle" ,:size => '32x32'%>
-          </a>
-          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><%= link_to "投稿一覧", posts_index_path, class: "dropdown-item" %></li>
-            <li><%= link_to "記録作成", new_post_path, class: "dropdown-item" %></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "アカウント設定", user_path(current_user), class: "dropdown-item" %></li>
-            <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item", form_class: "form-inline" %></li>
-          </ul>
-        </div>
-        <% else %>
-          <div class="btn-group" role="group">
-            <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary mr-3" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary mr-3" %>
-            <%= link_to "ゲストログイン", guest_login_path, class: "btn btn-primary" %>
-          </div>
-        <% end%>
-      </div>
-    </div>      
+      <% if user_signed_in? %>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+  <li class="nav-item d-none d-lg-block">
+    <%= link_to "投稿一覧", posts_index_path, class: "nav-link px-2 link-dark" %>
+  </li>
+  <li class="nav-item d-none d-lg-block">
+    <%= link_to "記録作成", new_post_path, class: "nav-link px-2 link-dark" %>
+  </li>
+  <li class="nav-item d-none d-lg-block">
+    <%= link_to "日々の成長確認", dashboard_show_path, class: "nav-link px-2 link-dark" %>
+  </li>
+</ul>
+
+        <div class="d-flex justify-content-between">
+  <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex align-items-center">
+    <%= form_tag(posts_path, method: "get", class: "d-flex align-items-center") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "キーワードを入力", class: "form-control me-2" %>
+      <%= submit_tag "検索", class: "btn btn-primary" %>
+    <% end %>
+  </form>
+  <div class="dropdown text-end" style="position: relative;"> 
+    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+      <%= image_tag current_user.profile_image_id.blank? ? 'no-image.png' : current_user.profile_image_id.url, class: "img-account img-field img-circle", :size => '32x32' %>
+    </a>
+    <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1" style="position: absolute; right: 0;"> 
+      <li><%= link_to "投稿一覧", posts_index_path, class: "dropdown-item" %></li>
+      <li><%= link_to "記録作成", new_post_path, class: "dropdown-item" %></li>
+      <li><%= link_to "日々の成長確認", dashboard_show_path, class: "dropdown-item" %></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><%= link_to "アカウント設定", user_path(current_user), class: "dropdown-item" %></li>
+      <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item", form_class: "form-inline" %></li>
+    </ul>
+  </div>
+</div>
+<% else %>
+  <div class="btn-group" role="group">
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary mr-3" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary mr-3" %>
+    <%= link_to "ゲストログイン", guest_login_path, class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+    </div>
   </div>
 </header>
-  <% if flash[:notice] %>
-   <p class="notice"><%= flash[:notice] %></p>
-  <% end %>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>

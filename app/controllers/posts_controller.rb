@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:index,:create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :create, :edit, :update, :destroy]
   before_action :check_login_for_new, only: [:new, :create]
 
   def index
@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
-
     @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC')
   end
 
@@ -22,8 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       flash[:notice] = "新規投稿しました。"
       @chart_data ||= {}
-      #@chart_data[@post.name] = @post.set.to_f
-      @chart_data[@post.name] = @post.effect.to_f # 種目名とトレーニングの効果をグラフ用のデータに追加
+      @chart_data[@post.name] = @post.effect.to_f
       redirect_to posts_path
     else
       render "new"
@@ -67,7 +65,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :set, :introduction,:muscle, :effect)
+    params.require(:post).permit(:name, :set, :introduction, :muscle, :effect)
   end
 
   def authorize_user!

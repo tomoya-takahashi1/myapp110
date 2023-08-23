@@ -88,3 +88,43 @@
 #popular-posts-link {
   margin-left: 120px;
 }
+
+.overlay-title {
+  font-size: 3em;
+  margin: 10px 0;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  text-align: center;
+}
+
+.overlay-description {
+  font-size: 1em;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .overlay-description {
+    font-size: 0.8em; /* 適切なフォントサイズを指定してください */
+    line-height: 1.5;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: 0;
+    padding: 10px; /* 適切なパディングを指定してください */
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
