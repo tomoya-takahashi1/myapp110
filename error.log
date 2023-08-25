@@ -30,3 +30,4 @@
 	from /Users/btsscandal/myapp110/config/boot.rb:3:in `<top (required)>'
 	from bin/rails:3:in `require_relative'
 	from bin/rails:3:in `<main>'
+

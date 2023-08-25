@@ -25,31 +25,6 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 概要
 このサイトは、トレーニングに関する情報を投稿し、ユーザー同士でトレーニングの成果を共有できます。
 
-<table>
-  <h3>機能一覧</h3>
-    <tr>
-      <th>・ログイン登録、ゲストログイン(devise)</th> 
-    </tr>
-  <tr>
-    <td>・いいね機能</td> 
-  </tr>
-  <tr>
-    <td>・CRUD機能</td> 
-  </tr>
-  <tr>
-    <td>・検索機能(ransack)</td> 
-  </tr>
-   <tr>
-    <td>・画像投稿(carrierwave,mini_magick)</td> 
-  </tr>
-  <tr>
-    <td>・rubocop</td> 
-  </tr>
-  <tr>
-    <td>・Rspec</td> 
-  </tr>
-</table>
-
 <h2>投稿画面</h2>
 
 ![スクリーンショット 2023-08-08 18 11 53](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/7701df87-e4b1-4d3a-abb6-298336761a70)
@@ -144,7 +119,7 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
     <td> 習慣が10割</td> <td>習慣の仕組みやまず初めに習慣のハードルをとにかく下げることなど</td>
   </tr>
   <tr>
-    <td>様々なQiitaの記事やRailsドキュメント</td> <td>基本的にはエラー解決のほとんどをQiitaの記事で解決しました。</td>
+    <td>様々なQiitaの記事や<br>Railsドキュメント</td> <td>基本的にはエラー解決のほとんどをQiitaの記事で解決しました。</td>
   </tr>
 </table>
 
