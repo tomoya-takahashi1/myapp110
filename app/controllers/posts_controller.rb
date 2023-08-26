@@ -30,14 +30,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @posts = Post.all
   end
 
   def edit
-    @post = current_user.posts.find_by(id: params[:id])
-  if @post.nil?
-    flash[:notice] = "他のユーサーの投稿は編集できません"
-    redirect_to root_path
-  end
+    @post = Post.find(params[:id])
   end
 
   def update

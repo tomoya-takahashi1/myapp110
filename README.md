@@ -33,6 +33,13 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 
 <img width="1354" alt="スクリーンショット 2023-08-23 21 07 29" src="https://github.com/tomoya-takahashi1/myapp110/assets/123609557/6d660e87-575e-4cc4-8f7a-e6c0052c87a6">
 
+<h2>勝手にトレーニング作成</h2>
+どうしてもやる気が起きない時に使用します。ボタンを押して種目と回数を決めます。
+
+![スクリーンショット 2023-08-26 16 55 01](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/ca420813-0bed-477f-8a6b-29f1f0b4be4a)
+
+![スクリーンショット 2023-08-26 16 55 16](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/91ede3be-26ad-4cac-a39f-33944018abfa)
+
 <table>
   <h3>使用技術</h3>
   <tr>

@@ -1,33 +1,45 @@
 <div class="container mt-5 pt-5">
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-12 col-md-8">
       <div class="card shadow">
         <div class="card-body">
-          <h3 class="card-title mb-4">トレーニング詳細</h3>
-          <table class="table table-bordered">
-            <tr>
-              <th>種目</th>
-              <td><%= @post.name %></td>
-            </tr>
-            <tr>
-              <th>回数</th>
-              <td><%= @post.set %></td>
-            </tr>
-            <tr>
-              <th>おすすめの器具、トレーニング、プロテイン</th>
-              <td><%= @post.introduction %></td>
-            </tr>
-            <tr>
-              <th>トレーニング部位</th>
-               <td><%= @post.muscle %></td>
-            </tr>
-          </table>
-          <div class="text-center mt-4">
-            <% if @post.user == current_user %>
-              <%= link_to '編集', edit_post_path(@post), class: "btn btn-success" %>
-              <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-danger" %>
-            <% end %>
-            <%= link_to "ユーザー情報一覧に戻る", posts_path, class: "btn btn-secondary" %>
+          <div class="mt-5"> 
+            <h3 class="card-title mb-4">トレーニング詳細</h3>
+            <table class="table table-bordered">
+              <tr>
+                <th>種目</th>
+                <td><%= @post.name %></td>
+              </tr>
+              <tr>
+                <th>回数</th>
+                <td><%= @post.set %></td>
+              </tr>
+              <tr>
+                <th>おすすめの器具、トレーニング、プロテイン</th>
+                <td><%= @post.introduction %></td>
+              </tr>
+              <tr>
+                <th>トレーニング部位</th>
+                 <td><%= @post.muscle %></td>
+              </tr>
+            </table>
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                <% if @post.user == current_user %>
+                  <div class="mb-2">
+                    <%= link_to edit_post_path(@post), class: "btn btn-success btn-block" do %>
+                    <i class="fas fa-edit"></i> 編集
+                <% end %>
+                </div>
+                <div class="mb-2">
+                <%= button_to post_path(@post), method: :delete, class: "btn btn-danger btn-block", data: { confirm: '本当に削除しますか？' } do %>
+                <i class="fas fa-trash"></i> 削除
+                <% end %>
+                </div>
+                <% end %>
+              <div>
+              <%= link_to "ユーザー情報一覧に戻る", posts_path, class: "btn btn-secondary btn-block" %>
+            </div>
           </div>
         </div>
       </div>

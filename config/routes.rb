@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   get '/api_products_search', to: 'api_products#search'
-  resource :dashboard, only: [:show]
+  resource :dashboard, only: [:show,]
+  get '/dashboard/index', to: 'dashboard#index', as: 'dashboard_index'
+
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

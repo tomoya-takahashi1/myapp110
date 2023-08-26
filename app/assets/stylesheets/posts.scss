@@ -76,6 +76,12 @@
   text-decoration: underline;
   cursor: pointer;
 }
+@media (max-width: 390px) {
+  #new-posts-link,
+  #popular-posts-link {
+    font-size: 24px; /* または適切なサイズに調整 */
+  }
+}
 
 #popular-posts {
   display: none;
@@ -114,17 +120,49 @@
 
 @media screen and (max-width: 480px) {
   .overlay-description {
-    font-size: 0.8em; /* 適切なフォントサイズを指定してください */
+    font-size: 0.1em; /* 適切なフォントサイズを指定してください */
     line-height: 1.5;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     margin: 0;
-    padding: 10px; /* 適切なパディングを指定してください */
+    padding: 1px; /* 適切なパディングを指定してください */
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+@media screen and (max-width: 480px) {
+  .overlay-description {
+    /* 他のプロパティは変更せずに、white-space: normal; に変更する */
+    white-space: normal;
+    overflow: visible; /* または scroll や auto を指定するなど */
+    text-overflow: initial;
+  }
+}
+@media screen and (max-width: 390px) {
+  .overlay-description {
+    font-size: 0.1em; /* 適切なフォントサイズを指定してください */
+    line-height: 1.5;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: 0;
+    padding: 1px; /* 適切なパディングを指定してください */
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+@media screen and (max-width: 390px) {
+  .overlay-description {
+    /* 他のプロパティは変更せずに、white-space: normal; に変更する */
+    white-space: normal;
+    overflow: visible; /* または scroll や auto を指定するなど */
+    text-overflow: initial;
   }
 }
