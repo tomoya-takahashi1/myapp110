@@ -40,15 +40,10 @@
               </div>
 
               <div class="actions">
-                <%= f.submit "更新", class: "btn btn-primary" %>
+                <%= f.submit "更新を完了する", class: "btn btn-primary" %>
+                <%= link_to "キャンセル", user_path(current_user), class: "btn btn-primary ml-1 colorful-btn red-link" %>
               </div>
             <% end %>
-
-            <h3 class="mt-4">アカウントのキャンセル</h3>
-
-            <div>不満ですか？ <%= button_to "アカウントをキャンセルする", registration_path(resource_name), data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete, class: "btn btn-danger" %></div>
-
-            <%= link_to "戻る", :back %>
           </div>
         </div>
       </div>

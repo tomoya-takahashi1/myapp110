@@ -47,3 +47,36 @@ ja:
       post:
         name: "種目"
         set: "回数"
+
+ja:
+  errors:
+    messages:
+      not_saved: "保存できませんでした。"
+
+ja:
+  devise:
+    registrations:
+      user:
+        updated: '更新されました。'
+
+
+
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        name: "名前"
+        password_confirmation: "確認用パスワード"
+        remember_me: "次回から自動的にログイン"
+  errors:
+    messages:
+      not_saved: '登録に失敗しました。'
+
+      ja:
+  devise:
+    sessions:
+      signed_in: 'ログインしました。'
+      
+    

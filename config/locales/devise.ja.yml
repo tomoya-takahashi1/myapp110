@@ -3,3 +3,32 @@ ja:
     sessions:
       signed_in: 'ログインしました。'
       signed_out: 'ログアウトしました。'
+
+
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+  errors:
+    messages:
+      not_saved: '登録に失敗しました。'
+
+ja:
+  devise:
+    registrations:
+      signed_up: '新規登録が完了しました。'
+      user:
+        signed_up: 'ユーザーの新規登録が完了しました。'
+
+ja:
+  devise:
+    sessions:
+      signed_in: 'ログインしました。'
+
+ja:
+  devise:
+    registrations:
+      signed_up: '新規登録が完了しました。'
+

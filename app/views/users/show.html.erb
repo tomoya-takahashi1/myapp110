@@ -1,5 +1,4 @@
-  <body>
-    <div class="container mt-5 pt-5">
+  <div class="container mt-5 pt-5">
       <h2>設定</h2>
       <div class="user-container">
         <div class="account-info">
@@ -15,7 +14,7 @@
             <p class="account-value"><%= current_user.name %></p>
           </div>
           <div class="account-info-group">
-            <label class="account-label">>自己紹介</label>
+            <label class="account-label">自己紹介</label>
             <p class="account-value"><%= current_user.profile %></p>
           </div>
           <div class="account-info-group">
@@ -27,13 +26,15 @@
             <p class="account-value">*********</p>
           </div>
           <div class="account-actions">
-            <%= link_to "アカウント設定", edit_user_path(@user), class: "button is-primary" %>
-            <%= link_to "プロフィール編集", edit_registration_path(@user), class: "button is-primary" %>
+          <% if user_signed_in? && current_user.email != 'guest@example.com' %>
+            <%= link_to "アカウント設定", edit_user_path(current_user), class: "button is-primary" %>
+            <%= link_to "プロフィール編集", edit_registration_path(current_user), class: "button is-primary" %>
+          <% end %>
           </div>
         </div>
       </div>
     </div>
-</body>
+
 
 
       
