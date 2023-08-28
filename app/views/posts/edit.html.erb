@@ -10,9 +10,7 @@
               <table class="table table-bordered">
                 <tr>
                   <th><%= f.label :name, "種目" %></th>
-                  <td>
-                  <%= f.select :name, options_for_select(["胸", "肩","背中","腕","腹","足","その他"]), {}, class: "form-control" %>
-                  </td>
+                  <td><%= f.text_area :name, class: "form-control" %></td>
                 </tr>
                 <tr>
                   <th><%= f.label :set, "回数" %></th>
@@ -24,7 +22,7 @@
                 </tr>
                 <tr>
                   <th><%= f.label :muscle, "トレーニング部位" %></th>
-                  <td><%= f.text_area :muscle, class: "form-control" %></td>
+                  <td><%= f.select :muscle, options_for_select(["胸", "肩","背中","腕","腹","足","その他"]), {}, class: "form-control" %></td>
                 </tr>
               </table>
               <div class="text-center "> 
