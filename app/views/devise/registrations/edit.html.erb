@@ -1,25 +1,22 @@
+<div class="extra-top-margin"></div>
 <div class="container-fluid py-5 mt-5">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-6">
+      <div class="col-lg-6">
         <div class="card shadow">
           <div class="card-body bg-light">
             <div class="text-center">
               <h2 class="card-title mb-4">プロフィール編集</h2>
             </div>
-
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= render "devise/shared/error_messages", resource: resource %>
-
               <div class="mb-3">
                 <%= f.label :email, "メールアドレス", class: "form-label" %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
               </div>
-
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>現在の確認待ちメールアドレス: <%= resource.unconfirmed_email %></div>
               <% end %>
-
               <div class="mb-3">
                 <%= f.label :password, "パスワード", class: "form-label" %> <i>(変更しない場合は空白のままにしてください)</i><br />
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
@@ -28,20 +25,17 @@
                   <em><%= @minimum_password_length %> 文字以上で入力してください</em>
                 <% end %>
               </div>
-
               <div class="mb-3">
                 <%= f.label :password_confirmation, "パスワード確認", class: "form-label" %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
               </div>
-
               <div class="mb-3">
                 <%= f.label :current_password, "現在のパスワード", class: "form-label" %> <i>(変更を確認するために現在のパスワードが必要です)</i><br />
                 <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
               </div>
-
-              <div class="actions">
-                <%= f.submit "更新を完了する", class: "btn btn-primary" %>
-                <%= link_to "キャンセル", user_path(current_user), class: "btn btn-primary ml-1 colorful-btn red-link" %>
+              <div class="actions mt-3 text-center">
+                <%= f.submit "更新を完了する", class: "btn btn-primary btn-lg btn-block mb-2 mx-auto" %>
+                <%= link_to "キャンセル", user_path(current_user), class: "btn btn-secondary btn-lg btn-block colorful-btn red-link mx-auto" %>
               </div>
             <% end %>
           </div>
@@ -52,3 +46,10 @@
 </div>
 
 
+<style>
+  .extra-top-margin {
+    margin-top: 100px; 
+  }
+
+  
+</style>

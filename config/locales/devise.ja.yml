@@ -32,3 +32,7 @@ ja:
     registrations:
       signed_up: '新規登録が完了しました。'
 
+ja:
+  errors:
+    messages:
+      not_saved: "保存できませんでした。"

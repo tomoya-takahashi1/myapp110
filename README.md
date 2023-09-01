@@ -42,7 +42,7 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 　
 <h2>グラフでの成長の確認</h2>
 
-<img width="1354" alt="スクリーンショット 2023-08-23 21 07 29" src="https://github.com/tomoya-takahashi1/myapp110/assets/123609557/6d660e87-575e-4cc4-8f7a-e6c0052c87a6">
+![スクリーンショット 2023-09-01 14 05 12](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/fb80975c-7b39-43ea-a000-d18d65fdd434)
 
 <h2>勝手にトレーニング作成</h2>
 どうしてもやる気が起きない時に使用します。ボタンを押して種目と回数を決めます。

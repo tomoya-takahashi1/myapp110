@@ -1,4 +1,12 @@
 <div class="container mt-5 pt-5">
+   <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+</div>
+<div class="extra-top-margin"></div>
+<div class="container mt-5 pt-5">
   <div class="row">
     <div class="col-6 mx-auto">
       <h2>ログイン画面</h2>
@@ -27,3 +35,12 @@
     </div>
   </div>
 </div>
+<style>
+  .extra-top-margin {
+    margin-top: 100px; 
+  }
+  .centered-container {
+    margin: 0 auto;
+    width: 60%; /* センタリングされるコンテンツの幅を調整します */
+  }
+</style>
