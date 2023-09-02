@@ -44,3 +44,12 @@ body {
     transform: translateX(0);
   }
 }
+
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: orange; /* オレンジ色の背景 */
+  padding: 10px; /* 必要に応じて余白を設定 */
+  text-align: center; /* テキストを中央に配置 */
+
+}

@@ -3,13 +3,14 @@ class PostsController < ApplicationController
   before_action :check_login_for_new, only: [:new, :create]
 
   def index
-    if params[:search]
-      search_query = "%#{params[:search]}%"
-      @posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
-    else
-      @posts = Post.all
-    end
-    @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC')
+    @user = current_user
+    @posts = @user.posts.order(created_at: :desc).limit(10)
+    user_id = params[:user_id]
+    @user = User.find(user_id)
+    
+    @chart_data = @user.posts.group_by { |post| post.created_at.to_date }.transform_values { |posts| posts.map { |post| { name: post.name, set: post.set.to_f } } }
+    clicked_user = User.find(params[:user_id])
+    @posts = clicked_user.posts
   end
 
   def new
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
       flash[:notice] = "新規投稿しました。"
       @chart_data ||= {}
       @chart_data[@post.name] = @post.effect.to_f
-      redirect_to posts_path
+      redirect_to home_path
     else
       render "new"
     end
@@ -41,8 +42,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize_user!
     if @post.update(post_params)
-      flash[:notice] = "ユーザーIDが「#{@post.id}」の情報を更新しました"
-      redirect_to posts_path
+      flash[:notice] = "投稿を編集しました"
+      redirect_to home_path
     else
       render "edit"
     end
@@ -57,6 +58,21 @@ class PostsController < ApplicationController
     flash[:notice] = "他のユーサーの投稿は消せません"
   end
   redirect_to root_path
+  end
+
+  def home
+    @user = current_user
+    @posts = Post.all
+    @users = User.all
+    if params[:search]
+      search_query = "%#{params[:search]}%"
+      @posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
+    else
+      @user = current_user
+      @posts = Post.all
+      @users = User.all
+    end
+    @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC')
   end
 
   private

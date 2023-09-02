@@ -1,0 +1,223 @@
+<div class="container mt-5 pt-5">
+   <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+</div>
+
+<div class="bd-example text-center mt-5" style="position: relative;">
+  <h2 class="overlay-title">Habit</h2>
+  <p>--習慣人生変わる--</p>
+</div>
+
+<div class="bd-example" style="position: relative; text-align: center; max-width: 600px; margin: 0 auto;">
+  <img src="https://www.d-sp.co.jp/maebashi/wp/wp-content/uploads/2020/06/shutterstock_311106002.jpg" class="img-fluid" alt="Responsive image" width="100%">
+  <div class="overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(134, 142, 150, 0.5); padding: 10px;">
+    <p class="overlay-description" style="color: #dee2e6; font-size: clamp(8px, 1.5vw, 18px); text-align: center;">
+      トレーニングした記録を共有できるサイトです<br>
+      <span style="font-size: clamp(6px, 1.2vw, 14px);">理想のボディに近づけるように今日も頑張りましょう!</span><br>
+      <span style="font-size: clamp(6px, 1.2vw, 14px);">みんなの投稿を見て、イカしたトレーニングを見つけたらお気に入り登録しておこう！</span>
+    </p>
+  </div>
+</div>
+
+
+<div class="container mt-5 ">
+  <div class="mx-6">
+    <div class="bd-example">
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h4 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              トレーニングは必要なのか
+            </button>
+          </h4>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>トレーニングをするメリットはたくさんある.</strong><br> 1つ目健康的な生活をおくれる<br>2つ目老若男女関係なく始められる<br>3つ目精神的に安定する
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h4 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              習慣にしないと人間は行動できない
+            </button>
+          </h4>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>トレーニングを習慣にすることは難しい辛い、大変、苦しい、すぐに結果に現れないだからこそ記録することに意味がある</strong> 
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h4 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              人間は承認欲求の塊
+            </button>
+          </h4>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>他の人に見てもらえることで頑張れる自分以外にも頑張っている人がいるからこそ自分も頑張れる</strong> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="text-center mt-3 d-flex justify-content-center mt-md-5">
+    <div class="d-flex align-items-center">
+      <%= link_to "-新着投稿-", "#", id: "new-posts-link", class: "me-3 mb-2 flex-shrink-0" %>
+      <%= link_to "-人気投稿-", "#", id: "popular-posts-link", class: "mb-2 flex-shrink-0 ml-5" %>
+    </div>
+  </div>
+</div>
+
+<div class="container  pt-5">
+  <div class="row">
+    <div class="col-12 mx-auto px-0" id="new-posts">
+      <p class="text-center ">新着投稿</p>
+        <div class="table-responsive">
+          <table class="table custom-table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">種目</th>
+                <th scope="col">投稿者</th>
+                <th scope="col">回数</th>
+                <th scope="col">器具、<br>プロテイン</th>
+                <th scope="col">トレーニング部位</th>
+                <th scope="col">作成日</th>
+                <th scope="col">いいね</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @posts.reverse_each do |post| %>
+                <td class="text-center"><%= link_to post.name, post_path(post) %></td>
+                <td class="text-center"><%= post.user.name %></td>
+                <td class="text-center"><%= post.set %></td>
+                <td class="text-center"><%= post.introduction %></td>
+                <td class="text-center"><%= post.muscle %></td>
+                <td class="text-center"><%= post.created_at.to_s(:datetime_jp) %></td>
+                <td class="text-center">
+                  <div class="favorite-wrapper">
+                  <% if current_user && current_user.already_favorited?(post) %>
+                    <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button" do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                  <% else %>
+                    <%= button_to post_favorites_path(post_id: post.id), method: :post, class: "favorite-button" do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                  <% end %>
+                  <span class="favorite-count"><%= post.favorites.count %></span>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          </table>
+        </div>
+    </div>
+    <div class="col-12 mx-auto px-0" id="popular-posts" >
+      <p class="text-center ">人気投稿</p>
+        <div class="table-responsive">
+         <table class="table custom-table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">種目</th>
+              <th scope="col">投稿者</th>
+              <th scope="col">回数</th>
+              <th scope="col">器具、<br>プロテイン</th>
+              <th scope="col">トレーニング部位</th>
+              <th scope="col">作成日</th>
+              <th scope="col">いいね</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @popular_posts.each do |post| %>
+              <tr>
+                <td class="text-center"><%= link_to post.name, post_path(post) %></td>
+                <td class="text-center"><%= post.user.name %></td>
+                <td class="text-center"><%= post.set %></td>
+                <td class="text-center"><%= post.introduction %></td>
+                <td class="text-center"><%= post.muscle %></td>
+                <td class="text-center"><%= post.created_at.to_s(:datetime_jp) %></td>
+                </td>
+                <td class="text-center">
+                  <div class="favorite-wrapper">
+                    <% if current_user.already_favorited?(post) %>
+                    <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button" do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                  <% else %>
+                    <%= button_to post_favorites_path(post_id: post.id), method: :post, class: "favorite-button" do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                  <% end %>
+                  <span class="favorite-count"><%= post.favorites.count %></span>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="bd-example text-center mt-5" style="position: relative;">
+  <h3 >ユーザー一覧</h3>
+</div>
+<div class="container mt-5 pt-5"> 
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="table-responsive" style="overflow-x: auto;">
+        <table class="table table-auto">
+          <thead>
+            <tr>
+              <th></th>
+              <th>名前</th>
+              <th>目標</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+              <td> <%= image_tag current_user.profile_image_id.blank? ? 'no-image.png' : current_user.profile_image_id.url, class: "img-account img-field img-circle", :size => '32x32' %></td>
+              <td><%= link_to user.name, posts_index_path(user_id: user.id) %></td>
+              <td><%= user.profile %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+.fixed_to_post_link {
+  position: fixed;
+  bottom: 20px; /* 画面下からの距離を調整 */
+  right: 20px; /* 画面右からの距離を調整 */
+  background-color: #007bff; /* バックグラウンド色を設定 */
+  color: #fff; /* テキストの色を設定 */
+  padding: 10px 20px; /* パディングを設定 */
+  border-radius: 5px; /* 角丸を設定 */
+  text-decoration: none; /* テキストの下線を削除 */
+}
+
+.fixed_to_post_link:hover {
+  background-color: #0056b3; /* ホバー時のバックグラウンド色を設定 */
+}
+</style>
+
+<a class="fixed_to_post_link" href="/posts/new">＋投稿する</a>

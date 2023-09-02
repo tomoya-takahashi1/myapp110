@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'dashboard/show'
   resources :comments
-  root to: 'posts#index'
+  root to: 'posts#home'
   get 'posts/index'
   get 'home/top'
   devise_for :users
@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   get '/api_products_search', to: 'api_products#search'
   resource :dashboard, only: [:show,]
   get '/dashboard/index', to: 'dashboard#index', as: 'dashboard_index'
-
-
-
+  get 'home', to: 'posts#home', as: :home
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

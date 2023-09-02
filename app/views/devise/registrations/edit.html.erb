@@ -33,10 +33,15 @@
                 <%= f.label :current_password, "現在のパスワード", class: "form-label" %> <i>(変更を確認するために現在のパスワードが必要です)</i><br />
                 <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
               </div>
-              <div class="actions mt-3 text-center">
-                <%= f.submit "更新を完了する", class: "btn btn-primary btn-lg btn-block mb-2 mx-auto" %>
-                <%= link_to "キャンセル", user_path(current_user), class: "btn btn-secondary btn-lg btn-block colorful-btn red-link mx-auto" %>
+              <div class="row">
+                <div class="col-md-6 mb-2">
+                  <%= f.submit "更新を完了する", class: "btn btn-primary btn-lg btn-block" %>
+                </div>
+                <div class="col-md-6">
+                  <%= link_to "キャンセル", user_path(current_user), class: "btn btn-secondary btn-lg btn-block colorful-btn red-link" %>
+                </div>
               </div>
+            </div>
             <% end %>
           </div>
         </div>
@@ -44,7 +49,7 @@
     </div>
   </div>
 </div>
-
+<div style="margin-bottom: 230px;"></div>
 
 <style>
   .extra-top-margin {

@@ -24,7 +24,7 @@
             <p class="account-value"><%= current_user.name %></p>
           </div>
           <div class="account-info-group">
-            <label class="account-label">自己紹介</label>
+            <label class="account-label">目標</label>
             <p class="account-value"><%= current_user.profile %></p>
           </div>
           <div class="account-info-group">
@@ -38,15 +38,15 @@
         </div> 
       </div>
       <div class="account-actions d-flex justify-content-center mt-3">
-          <% if user_signed_in? && current_user.email != 'guest@example.com' %>
-            <%= link_to "アカウント設定", edit_user_path(current_user), class: "btn btn-primary mx-2" %>
-            <%= link_to "プロフィール編集", edit_registration_path(current_user), class: "btn btn-primary mx-2" %>
-          <% end %>
-        </div>
+        <% if user_signed_in? && current_user.email != 'guest@example.com' %>
+          <%= link_to "アカウント設定", edit_user_path(current_user), class: "btn btn-primary mx-2" %>
+          <%= link_to "プロフィール編集", edit_registration_path(current_user), class: "btn btn-primary mx-2" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-
+<div style="margin-bottom: 230px;"></div>
 
 
 
