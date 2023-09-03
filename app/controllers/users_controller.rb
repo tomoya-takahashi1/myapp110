@@ -8,20 +8,33 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if params[:search]
+      search_query = "#{params[:search]}"
+      @posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
+      redirect_to home_path(search: search_query)
+    end
   end
 
   def edit
     @user = User.find(params[:id])
+  
     if current_user.guest? && current_user == @user
-      flash[:notice] = 'ゲストユーザーは編集できません。'
+      flash[:notice] = 'ゲストユーザーは編集できません.'
       redirect_to user_path(current_user)
     elsif current_user.guest?
-      flash[:notice] = 'ゲストユーザーは編集できません。'
+      flash[:notice] = 'ゲストユーザーは編集できません.'
       redirect_to root_path
     else
-      render :edit
+      if params[:search]
+        search_query = "#{params[:search]}"
+        @posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
+        redirect_to home_path(search: search_query)
+      else
+        render :edit
+      end
     end
   end
+  
     
   def update
     @user = User.find(params[:id])
@@ -37,4 +50,5 @@ class UsersController < ApplicationController
   def account
   end
 
+  
 end

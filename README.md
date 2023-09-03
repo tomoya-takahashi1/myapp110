@@ -4,7 +4,10 @@
 トレーニングの記録を投稿するサイトです。<br>
 自分が行ったトレーニングを共有しながら他のユーザーの投稿も見ながらお互いに高めあう為に作りました。
 <br>レスポンシブ対応しているのでスマホからもご確認いただけます。
+
 ![スクリーンショット 2023-08-23 17 13 45](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/e30fec96-c9ad-40dc-bfef-9e09d99240d2)
+
+![スクリーンショット 2023-09-03 20 46 01](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/5df26d50-3f7a-467c-9cee-8600558a1139)
 
 <h2>URL</h2>
 https://sheltered-waters-57153-72235aa359f9.herokuapp.com
@@ -21,9 +24,9 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 <br>などがありこれを解決するべく記録を残し一緒に頑張っている仲間と共有することで自分の努力が可視化され、
 <br>自己肯定感が高まり何より目標に向かう仲間がいるので自分一人でするより
 <br>複数でやった方が頑張れることによって結果に繋がると思い
-<br>このアプリを作成することにしました。
+<br>このアプリを作成することにしました。<br>
 
-概要<br>
+<h2>概要<br></h2>
 このサイトは、トレーニングに関する情報を投稿し、ユーザー同士でトレーニングの成果を共有できます。
 
 <h2>投稿画面</h2>
@@ -50,6 +53,19 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 ![スクリーンショット 2023-08-26 16 55 01](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/ca420813-0bed-477f-8a6b-29f1f0b4be4a)
 
 ![スクリーンショット 2023-08-26 16 55 16](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/91ede3be-26ad-4cac-a39f-33944018abfa)
+
+<h2>トレーニング一覧</h2>
+いますぐ出来る筋トレを画像付きで説明しています。
+
+![スクリーンショット 2023-09-03 20 31 58](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/209cab56-6564-4f80-b7db-1c1301d6a18c)
+
+
+<h2>ユーザー一覧</h2>
+登録しているユーザーを一覧で表示しユーザー名をクリックするとそのユーザーの投稿件数と一覧を表示しそのユーザーがどれくらい努力しているか確認できます。
+
+![スクリーンショット 2023-09-03 20 41 39](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/8d8dcf99-d363-457c-bb9a-969e45a56ddf)
+
+![スクリーンショット 2023-09-03 20 43 38](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/54785ce2-7383-4ceb-88a6-be5247b476ee)
 
 <table>
   <h3>使用技術</h3>
@@ -145,3 +161,4 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 API関係を実装していないので以下が課題です。<br>
 1.他のユーザーが投稿した種目をYoutubeが検索<br>
 2.APIを使用しての商品検索(器具、プロテイン等)<br>
+3.YouTube Data APIでの筋トレ動画の表示<br>

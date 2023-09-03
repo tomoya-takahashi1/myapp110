@@ -36,13 +36,15 @@
                   </div>
                 <%end%>
               </ul>
-               <% if user_signed_in? %>
-               <form class="d-flex">
-                <input class="form-control me-2" type="search" name="search" value="<%= params[:search] %>" placeholder="投稿を検索" >
-                <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
+              <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
+                <% if user_signed_in? %>
+                 <form class="d-flex">
+                  <input class="form-control me-2" type="search" name="search" value="<%= params[:search] %>" placeholder="投稿を検索" >
+                  <button class="btn btn-outline-dark" type="submit">Search</button>
+                  </form>
                 <%else%>
                 <%end%>
+              <%end%>
             </div>
           </div>
         </nav>        
