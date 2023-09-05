@@ -18,8 +18,10 @@
         <div class="mb-3"> 
           <div class="account-info-group">
             <label class="account-label">アイコン画像</label>
-            <p class="account-value"> <%= image_tag current_user.profile_image_id.blank? ? 'kkrn_icon_user_7' : current_user.profile_image_id.url, class: "img-account img-field img-circle", :size => '32x32' %></p>
+           <!-- <p class="account-value"> <%= image_tag current_user.profile_image_id.blank? ? 'kkrn_icon_user_7' : current_user.profile_image_id.url, class: "img-account img-field img-circle", :size => '32x32' %></p>-->
+           <p class="account-value"><%= image_tag current_user.profile_image_id.blank? ? 'no-image.png' : current_user.profile_image_id.url %></p>
           </div>
+         
           <div class="account-info-group">
             <label class="account-label">名前</label>
             <p class="account-value"><%= current_user.name %></p>
@@ -48,3 +50,4 @@
   </div>
 </div>
 <div style="margin-bottom: 230px;"></div>
+
