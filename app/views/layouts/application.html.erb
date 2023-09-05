@@ -41,6 +41,42 @@
       hidePopularPosts();
       });
      });
+     document.addEventListener('DOMContentLoaded', function () {
+  const userListButton = document.getElementById('user-list-button');
+  const popularListButton = document.getElementById('popular-list-button');
+  const userList = document.getElementById('user-list');
+  const popularList = document.getElementById('popular-list');
+  const postLink = document.querySelector('.fixed_to_post_link');
+
+  postLink.style.display = 'block';
+
+  userListButton.addEventListener('click', function () {
+    userList.style.display = 'block'; 
+    popularList.style.display = 'none'; 
+  });
+
+  popularListButton.addEventListener('click', function () {
+    userList.style.display = 'none'; 
+    popularList.style.display = 'block'; 
+  });
+
+  userList.style.display = 'block';
+  popularList.style.display = 'none';
+
+  function showUserList() {
+    document.getElementById('user-list').style.display = 'block';
+    document.getElementById('popular-list').style.display = 'none';
+    document.getElementById('user-list-button').classList.add('active');
+    document.getElementById('popular-list-button').classList.remove('active');
+  }
+
+  function showPopularList() {
+    document.getElementById('user-list').style.display = 'none';
+    document.getElementById('popular-list').style.display = 'block';
+    document.getElementById('user-list-button').classList.remove('active');
+    document.getElementById('popular-list-button').classList.add('active');
+  }
+});
     </script>
   </head>
   <body>

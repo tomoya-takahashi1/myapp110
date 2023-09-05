@@ -7,9 +7,11 @@ class User < ApplicationRecord
          mount_uploader :profile_image_id, ImageUploader
          validates :name, presence: true
          def self.guest
-          find_or_create_by(email: 'guest@example.com') do |user|
+          find_or_create_by(email: 'guesttt@example.com') do |user|
             user.password = SecureRandom.hex(8)
             user.name = 'ゲストさん'
+            user.profile = '腹筋10回'
+            user.profile_image_id = 'https://kotonohaworks.com/free-icons/wp-content/uploads/kkrn_icon_user_7.png'
          end
   end
 
@@ -24,3 +26,4 @@ class User < ApplicationRecord
     self.favorites.exists?(post_id: post.id)
   end
 end
+

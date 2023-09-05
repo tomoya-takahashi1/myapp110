@@ -28,6 +28,19 @@
           font-size: 3.5rem;
         }
       }
+      .fixed_to_post_link {
+        position: fixed;
+        bottom: 20px; 
+        right: 20px; 
+        background-color: #007bff; 
+        color: #fff; 
+        padding: 10px 20px; 
+        border-radius: 5px; 
+        text-decoration: none; 
+}
+.fixed_to_post_link:hover {
+  background-color: #0056b3; 
+}
     </style>
     <link href="cheatsheet.css" rel="stylesheet">
   </head>
@@ -94,23 +107,5 @@
   <% end %>
 </div>
 <div style="margin-bottom: 230px;"></div>
-
-
-<style>
-.fixed_to_post_link {
-  position: fixed;
-  bottom: 20px; /* 画面下からの距離を調整 */
-  right: 20px; /* 画面右からの距離を調整 */
-  background-color: #007bff; /* バックグラウンド色を設定 */
-  color: #fff; /* テキストの色を設定 */
-  padding: 10px 20px; /* パディングを設定 */
-  border-radius: 5px; /* 角丸を設定 */
-  text-decoration: none; /* テキストの下線を削除 */
-}
-
-.fixed_to_post_link:hover {
-  background-color: #0056b3; /* ホバー時のバックグラウンド色を設定 */
-}
-</style>
 
 <a class="fixed_to_post_link" href="/posts/new">＋投稿する</a>

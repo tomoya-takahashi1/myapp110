@@ -17,7 +17,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-  
     if current_user.guest? && current_user == @user
       flash[:notice] = 'ゲストユーザーは編集できません.'
       redirect_to user_path(current_user)
