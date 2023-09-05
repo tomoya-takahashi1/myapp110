@@ -54,9 +54,13 @@
 </div>
 
 <div class="bd-example text-center mt-5" style="position: relative;">
+<% if @posts.any? %>
   <h2>
     <%= @posts.first.user.name if @posts.present? %>さんの投稿一覧
   </h2>
+<% else %>
+    <h2 class="text-center">トレーニングして投稿しましょう！！</h2>
+<% end %>  
 </div>
 
 <div class="bd-example" style="position: relative; text-align: center; max-width: 600px; margin: 0 auto;">
