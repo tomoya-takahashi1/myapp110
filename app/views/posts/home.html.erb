@@ -308,12 +308,12 @@
             <% @users.each do |user| %>
               <tr>
               <td>
-                  <% if current_user == user %>
-                    <%= image_tag current_user.profile_image_id.blank? ? 'kkrn_icon_user_7' : current_user.profile_image_id.url, class: "img-account img-field img-circle", :size => '32x32' %>
-                  <% else %>
-                    <%= image_tag user.profile_image_id.blank? ? 'no-image.png' : user.profile_image_id.url, class: "img-account img-field img-circle", :size => '32x32' %>
-                  <% end %>
-                </td>
+                <% if user.email == 'guesttt@example.com' %>
+                  <%= image_tag 'kkrn_icon_user_7.png', class: "img-account img-field img-circle", size: '32x32' %>
+                <% else %>
+                  <%= image_tag (user.profile_image_id.blank? ? 'no-image.png' : user.profile_image_id.url), class: "img-account img-field img-circle", size: '32x32' %>
+                <% end %>
+              </td>
               <td><%= link_to user.name, posts_index_path(user_id: user.id) %></td>
               <td><%= user.profile %></td>
                <td><%= user.posts.length %></td>
@@ -352,12 +352,12 @@
               <tr>
                 <td><%= index + 1 %></td>
                 <td>
-                  <% if current_user == user %>
-                    <%= image_tag current_user.profile_image_id.blank? ? 'kkrn_icon_user_7' : current_user.profile_image_id.url, class: "img-account img-field img-circle", :size => '32x32' %>
-                  <% else %>
-                    <%= image_tag user.profile_image_id.blank? ? 'no-image.png' : user.profile_image_id.url, class: "img-account img-field img-circle", :size => '32x32' %>
-                  <% end %>
-                </td>
+                <% if user.email == 'guesttt@example.com' %>
+                  <%= image_tag 'kkrn_icon_user_7.png', class: "img-account img-field img-circle", size: '32x32' %>
+                <% else %>
+                  <%= image_tag (user.profile_image_id.blank? ? 'no-image.png' : user.profile_image_id.url), class: "img-account img-field img-circle", size: '32x32' %>
+                <% end %>
+              </td>
                 <td><%= link_to user.name, posts_index_path(user_id: user.id) %></td>
                 <td><%= user.profile %></td>
                 <td><%= user.posts.length %></td>
