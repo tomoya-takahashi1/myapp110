@@ -7,7 +7,8 @@
 
 ![スクリーンショット 2023-08-23 17 13 45](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/e30fec96-c9ad-40dc-bfef-9e09d99240d2)
 
-![スクリーンショット 2023-09-03 20 46 01](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/5df26d50-3f7a-467c-9cee-8600558a1139)
+![スクリーンショット 2023-09-03 20 46 01](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/7f046a56-badf-4291-a4e3-ab9cba2afcae)
+
 
 <h2>URL</h2>
 https://sheltered-waters-57153-72235aa359f9.herokuapp.com
@@ -63,9 +64,14 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 <h2>ユーザー一覧</h2>
 登録しているユーザーを一覧で表示しユーザー名をクリックするとそのユーザーの投稿件数と一覧を表示し<br>そのユーザーがどれくらい努力しているか確認できます。
 
-![スクリーンショット 2023-09-03 20 41 39](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/8d8dcf99-d363-457c-bb9a-969e45a56ddf)
+![スクリーンショット 2023-09-06 14 44 15](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/1ab581bc-382f-4bd3-89f7-86212e3fa29e)
 
 ![スクリーンショット 2023-09-03 20 43 38](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/54785ce2-7383-4ceb-88a6-be5247b476ee)
+
+<h2>投稿ランキング</h2>
+各ユーザーの投稿数をランキング形式で表示しユーザー同士でのモチベーションが維持できます。
+
+![スクリーンショット 2023-09-06 14 46 53](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/8a2722fd-f39e-4449-8038-b23f9a88bf7f)
 
 <table>
   <h3>使用技術</h3>
