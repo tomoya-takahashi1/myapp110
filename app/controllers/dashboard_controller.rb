@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
       redirect_to home_path(search: search_query)
     end
   end
+
   def show
     @user = current_user
     @posts = @user.posts.order(created_at: :desc).limit(10)
@@ -17,5 +18,3 @@ class DashboardController < ApplicationController
     end
   end
 end
-
-

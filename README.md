@@ -9,7 +9,6 @@
 
 ![スクリーンショット 2023-09-03 20 46 01](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/7f046a56-badf-4291-a4e3-ab9cba2afcae)
 
-
 <h2>URL</h2>
 https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 
@@ -43,7 +42,9 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 種目名をクリックするとトレーニング詳細画面に遷移します。<br>(自分が投稿した種目名をクリックした場合のみ編集と削除が表示されます。)
 
 ![スクリーンショット 2023-08-28 13 56 01](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/f6d7c8ea-32a7-4bd6-a6dc-930b697b490d)
-　
+
+
+
 <h2>グラフでの成長の確認</h2>
 
 ![スクリーンショット 2023-09-01 14 05 12](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/fb80975c-7b39-43ea-a000-d18d65fdd434)
@@ -59,7 +60,6 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 いますぐ出来る筋トレを画像付きで説明しています。
 
 ![スクリーンショット 2023-09-03 20 31 58](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/209cab56-6564-4f80-b7db-1c1301d6a18c)
-
 
 <h2>ユーザー一覧</h2>
 登録しているユーザーを一覧で表示しユーザー名をクリックするとそのユーザーの投稿件数と一覧を表示し<br>そのユーザーがどれくらい努力しているか確認できます。
@@ -116,9 +116,6 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
     <td>・CRUD機能</td> 
   </tr>
   <tr>
-    <td>・検索機能(ransack)</td> 
-  </tr>
-   <tr>
     <td>・画像投稿(carrierwave,mini_magick)</td> 
   </tr>
   <tr>

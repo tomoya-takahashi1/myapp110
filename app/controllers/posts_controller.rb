@@ -2,43 +2,6 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create, :edit, :update, :destroy]
   before_action :check_login_for_new, only: [:new, :create]
 
-  #def index
-    #@user = current_user
-    #@posts = @user.posts.order(created_at: :desc).limit(10)
-    #user_id = params[:user_id]
-    #@user = User.find(user_id)
-    #@chart_data = @user.posts.group_by { |post| post.created_at.to_date }.transform_values { |posts| posts.map { |post| { name: post.name, set: post.set.to_f } } }
-    #clicked_user = User.find(params[:user_id])
-    #@posts = clicked_user.posts
-  #end
-
-  #def index
-    #@user = current_user
-    #@posts = @user.posts.order(created_at: :desc).limit(10)
-    #user_id = params[:user_id]
-    #@user = User.find(user_id)
-    #if user_id.present?
-      #begin
-        #@clicked_user = User.find(user_id)
-        #@chart_data = @clicked_user.posts.group_by { |post| post.created_at.to_date }.transform_values { |posts| posts.map { |post| { name: post.name, set: post.set.to_f } } }
-        #@posts = @clicked_user.posts
-      #rescue ActiveRecord::RecordNotFound
-        #flash[:error] = "指定されたユーザーが見つかりません。"
-        #redirect_to root_path
-      #end
-    #end
-  
-    #if params[:search]
-      #search_query = "#{params[:search]}"
-      #@posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
-      #redirect_to home_path(search: search_query)
-    #end
-    
-  #end
-
-  
-  
-  
   def index
     @user = current_user
     @posts = @user.posts.order(created_at: :desc).limit(10)
@@ -59,19 +22,8 @@ class PostsController < ApplicationController
       @posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
       redirect_to home_path(search: search_query)
     end
-    
   end
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
   def new
     @post = Post.new
     if params[:search]
@@ -133,7 +85,6 @@ class PostsController < ApplicationController
     @users = User.all.order(posts_count: :desc)
     @user = current_user
     @posts = Post.all
-    #@users = User.all
     if params[:search]
       search_query = "%#{params[:search]}%"
       @posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)

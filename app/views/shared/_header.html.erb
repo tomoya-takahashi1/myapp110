@@ -1,57 +1,49 @@
 <header>
-<article class="" id="navbar">
-  <div>
-        <div class="bd-example">
+  <article class="" id="navbar">
+    <div>
+      <div class="bd-example">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-           <% if user_signed_in? %>
-            <i id="dumbbell-icon" class="fas fa-dumbbell" style="font-size: 40px; cursor: pointer;"></i>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <%= link_to "投稿一覧", posts_index_path(user_id: current_user.id), class: "nav-link active", aria: { current: "page" } %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "記録作成", new_post_path, class: "nav-link active", aria: { current: "page" } %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "日々の成長確認", dashboard_show_path, class: "nav-link active", aria: { current: "page" } %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "メニュー開発所", dashboard_index_path, class: "nav-link active", aria: { current: "page" } %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link active", aria: { current: "page" } %>
-                </li>
-                <li class="nav-item d-flex">
-                  <%= link_to "アカウント設定",user_path(current_user), method: :delete, class: "nav-link active", aria: { current: "page" } %>
-                </li>
-                <%else%>
+            <% if user_signed_in? %>
+              <i id="dumbbell-icon" class="fas fa-dumbbell" style="font-size: 40px; cursor: pointer;"></i>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <%= link_to "投稿一覧", posts_index_path(user_id: current_user.id), class: "nav-link active", aria: { current: "page" } %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "記録作成", new_post_path, class: "nav-link active", aria: { current: "page" } %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "日々の成長確認", dashboard_show_path, class: "nav-link active", aria: { current: "page" } %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "メニュー開発所", dashboard_index_path, class: "nav-link active", aria: { current: "page" } %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link active", aria: { current: "page" } %>
+                  </li>
+                  <li class="nav-item d-flex">
+                    <%= link_to "アカウント設定",user_path(current_user), method: :delete, class: "nav-link active", aria: { current: "page" } %>
+                  </li>
+                  <%else%>
                   <div class="button-group left-margin"> 
                     <%= link_to "ゲストログイン", guest_login_path, class: "btn btn-primary mb-2" %>
                      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary mb-2" %>
                   </div>
-                <%end%>
-              </ul>
-              <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
-                <% if user_signed_in? %>
-                 <form class="d-flex">
-                  <input class="form-control me-2" type="search" name="search" value="<%= params[:search] %>" placeholder="投稿を検索" >
-                  <button class="btn btn-outline-dark" type="submit">Search</button>
-                  </form>
-                <%else%>
-                <%end%>
-              <%end%>
-            </div>
+                  <%end%>
+                </ul>
+              </div>
           </div>
         </nav>        
-        </div>
       </div>
-    </article>
-    </header>
+    </div>
+  </article>
+</header>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {

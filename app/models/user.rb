@@ -6,7 +6,6 @@ class User < ApplicationRecord
          attachment :profile_image
          mount_uploader :profile_image_id, ImageUploader
          validates :name, presence: true
-         
          def self.guest
           find_or_create_by(email: 'guesttt@example.com') do |user|
             user.password = SecureRandom.hex(8)
