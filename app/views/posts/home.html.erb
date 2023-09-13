@@ -78,6 +78,7 @@
   </div>
 </div>
 
+
 <div class="container  pt-5">
   <div class="row">
     <div class="col-12 mx-auto px-0" id="new-posts">
@@ -104,8 +105,8 @@
                 <td class="text-center"><%= post.muscle %></td>
                 <td class="text-center"><%= post.created_at.to_s(:datetime_jp) %></td>
                 <td class="text-center">
-                  <div class="favorite-wrapper">
-                  <% if current_user && current_user.already_favorited?(post) %>
+  <div class="favorite-wrapper">
+                    <% if current_user.already_favorited?(post) %>
                     <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button" do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
@@ -116,7 +117,9 @@
                   <% end %>
                   <span class="favorite-count"><%= post.favorites.count %></span>
                   </div>
-                </td>
+</td>
+
+                
               </tr>
             <% end %>
           </tbody>
