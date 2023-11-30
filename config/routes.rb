@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'dashboard/show'
   resources :comments
   root to: redirect('/users/sign_in')
+  #root 'devise/sessions#new'
   get 'posts/index'
   get 'home/top'
   devise_for :users
@@ -18,14 +19,8 @@ Rails.application.routes.draw do
   get '/dashboard/index', to: 'dashboard#index', as: 'dashboard_index'
   get 'home', to: 'posts#home', as: :home
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  
   resources :posts do
     resource :favorites, only: [:create, :destroy]
     get 'favorites', to: 'favorites#index', on: :member
   end
-  
-  
-  
-  
 end
