@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :check_login_for_new, only: [:new, :create]
 
   def index
+    
     @user = current_user
     @posts = @user.posts.order(created_at: :desc).limit(10)
     user_id = params[:user_id]
@@ -82,17 +83,19 @@ class PostsController < ApplicationController
   end
 
   def home
+    
     @users = User.all.order(posts_count: :desc)
     @user = current_user
     @posts = Post.all
-    if params[:search]
-      search_query = "%#{params[:search]}%"
-      @posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
-    else
-      @user = current_user
-      @posts = Post.all
-      @users = User.all
-    end
+    
+    #if params[:search]
+      #search_query = "%#{params[:search]}%"
+      #@posts = Post.where("name LIKE ? OR muscle LIKE ?", search_query, search_query)
+    #else
+      #@user = current_user
+      #@posts = Post.all
+      #@users = User.all
+    #end
     @popular_posts = Post.joins(:favorites).group(:id).order('COUNT(favorites.id) DESC')
   end
 

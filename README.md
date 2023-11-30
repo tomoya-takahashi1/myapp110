@@ -43,8 +43,6 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 
 ![スクリーンショット 2023-08-28 13 56 01](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/f6d7c8ea-32a7-4bd6-a6dc-930b697b490d)
 
-
-
 <h2>グラフでの成長の確認</h2>
 
 ![スクリーンショット 2023-09-01 14 05 12](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/fb80975c-7b39-43ea-a000-d18d65fdd434)
@@ -72,6 +70,11 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 各ユーザーの投稿数をランキング形式で表示しユーザー同士でのモチベーションが維持できます。
 
 ![スクリーンショット 2023-09-06 14 46 53](https://github.com/tomoya-takahashi1/myapp110/assets/123609557/8a2722fd-f39e-4449-8038-b23f9a88bf7f)
+
+<h2>楽天API</h2>
+各ユーザーが出した筋トレ器具やプロテインなどをすぐに検索できるようにしています。
+
+<img width="1440" alt="スクリーンショット 2023-11-30 20 00 11" src="https://github.com/tomoya-takahashi1/myapp110/assets/123609557/2c1482e6-dda1-411b-adab-bb826a084753">
 
 <table>
   <h3>使用技術</h3>
@@ -163,5 +166,4 @@ https://sheltered-waters-57153-72235aa359f9.herokuapp.com
 <h2>今後の課題</h2>
 API関係を実装していないので以下が課題です。<br>
 1.他のユーザーが投稿した種目をYoutubeが検索<br>
-2.APIを使用しての商品検索(器具、プロテイン等)<br>
-3.YouTube Data APIでの筋トレ動画の表示<br>
+2.YouTube Data APIでの筋トレ動画の表示<br>

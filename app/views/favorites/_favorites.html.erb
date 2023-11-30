@@ -1,0 +1,6 @@
+  
+ <% if current_user.already_favorited?(post) %>
+  <%= link_to "いいね解除", post_favorites_path(post), method: :delete %>
+<% else %>
+  <%= link_to "いいね", post_favorites_path(post), method: :post %>
+<% end %>

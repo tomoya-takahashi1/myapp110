@@ -78,6 +78,7 @@
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <div class="container  pt-5">
   <div class="row">
@@ -105,27 +106,26 @@
                 <td class="text-center"><%= post.muscle %></td>
                 <td class="text-center"><%= post.created_at.to_s(:datetime_jp) %></td>
                 <td class="text-center">
-  <div class="favorite-wrapper">
+                  <div class="favorite-wrapper">
                     <% if current_user.already_favorited?(post) %>
-                    <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button" do %>
-                    <i class="fas fa-heart"></i>
-                  <% end %>
-                  <% else %>
-                    <%= button_to post_favorites_path(post_id: post.id), method: :post, class: "favorite-button" do %>
-                    <i class="far fa-heart"></i>
-                  <% end %>
+                      <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button", remote: true do %>
+                      <i class="fas fa-heart"></i>
+                      <% end %>
+                    <% else %>
+                    <%= button_to post_favorites_path(post_id: post.id), method: :post, class: "favorite-button", remote: true do %>
+                      <i class="far fa-heart"></i>
+                    <% end %>
                   <% end %>
                   <span class="favorite-count"><%= post.favorites.count %></span>
                   </div>
-</td>
-
-                
+                </td>
               </tr>
             <% end %>
-          </tbody>
+           </tbody>
           </table>
         </div>
     </div>
+    
     <div class="col-12 mx-auto px-0" id="popular-posts" >
       <p class="text-center ">人気投稿</p>
         <div class="table-responsive">
@@ -154,7 +154,7 @@
                 <td class="text-center">
                   <div class="favorite-wrapper">
                     <% if current_user.already_favorited?(post) %>
-                    <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button" do %>
+                   <%= button_to post_favorites_path(post_id: post.id), method: :delete, class: "favorite-button" do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
                   <% else %>
@@ -283,7 +283,6 @@
   </div>
 </div>
 
-
 <div class="bd-example text-center mt-5" style="position: relative;">
   <h3>ユーザー一覧兼投稿ランキング</h3>
   <button id="user-list-button">ユーザー一覧</button>
@@ -374,9 +373,23 @@
 </div>
 
 <div style="margin-bottom: 30px;"></div>
-
 <div id="user-list" class="container">
 </div></div>
+<div class="bd-example text-center mt-5" style="position: relative;">
+  <h4>楽天で商品検索</h4>
+</div>
+
+<div class="container pt-5" style="max-width: 600px;">
+  <%= form_with url: api_products_search_path, method: :get, local: true do |f| %>
+    <div class="form-group">
+      <%= f.text_field :keyword, value: params[:keyword], class: "form-control",placeholder: "プロテインの検索" %>
+      <%= f.submit '製品名を検索', class: "form-control btn btn-success" %>
+    </div>
+  <% end %>
+  <% if @api_products.present? %>
+    <%= render 'api_products/api_product' %>
+  <% end %>
+</div>
 
 <style>
 .fixed_to_post_link {

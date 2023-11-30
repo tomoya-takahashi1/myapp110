@@ -22,7 +22,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  def already_favorited?(post)
+ def already_favorited?(post)
     self.favorites.exists?(post_id: post.id)
   end
 end
