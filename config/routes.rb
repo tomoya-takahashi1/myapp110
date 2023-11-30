@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'dashboard/show'
   resources :comments
   root to: redirect('/users/sign_in')
-  #root 'devise/sessions#new'
+  
   get 'posts/index'
   get 'home/top'
   devise_for :users
